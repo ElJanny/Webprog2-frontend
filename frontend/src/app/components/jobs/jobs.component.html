@@ -1,4 +1,4 @@
-<div class="container">
+
     <div class="mat-elevation-z8">
 <table mat-table [dataSource]="dataSource">
 
@@ -17,9 +17,9 @@
       <td mat-cell *matCellDef="let element"> {{element.value}} Points</td>
     </ng-container>
   
-    <tr mat-header-row *matHeaderRowDef="displayed_columns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayed_columns;"></tr>
+    <tr mat-header-row *matHeaderRowDef="displayed_columns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayed_columns;" (click)="selectThing(row)" class="my-mat-row"> </tr>
   </table>
   <mat-paginator [pageSizeOptions]="[10]" showFirstLastButtons></mat-paginator>
 </div>
-  </div>
+  

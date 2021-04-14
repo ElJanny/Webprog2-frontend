@@ -1,14 +1,8 @@
 table {
     width: 100%;
-    
-  }
+}
   
-  .container{
-      height: 100%;
-      width: 100%;
-  }
-
-  td, th {
+td, th {
     text-align: center !important;
     vertical-align: middle !important;
 }
@@ -21,4 +15,9 @@ table {
     align-self: center;
     align-content: center;
     align-items: center;
+    overflow: auto !important;
+}
+
+.my-mat-row{
+    align-items: stretch;
 }

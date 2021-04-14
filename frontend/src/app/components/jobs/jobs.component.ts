@@ -1,3 +1,4 @@
+import { SelectionModel } from '@angular/cdk/collections';
 import { AfterViewInit, ViewChild } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
@@ -14,6 +15,8 @@ import { JobsService } from './jobs.service';
 export class JobsComponent implements OnInit, AfterViewInit {
   public avaliable_jobs: Job[] = []
   public displayed_columns: string[]= ['title','description','value']
+ 
+
   dataSource = new MatTableDataSource<Job>(this.avaliable_jobs);
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
@@ -30,5 +33,9 @@ export class JobsComponent implements OnInit, AfterViewInit {
     this.dataSource.paginator = this.paginator;
   }
 
+  selectThing(row: Job){
+    console.log(row.id)
+  }  
+ 
 
 }
