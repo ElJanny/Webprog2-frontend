@@ -7,6 +7,8 @@ import { HeaderComponent } from './layout/header/header.component';
 import { ComponentModule } from './components/component.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatmoduleModule } from './matmodule/matmodule.module';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import { MatmoduleModule } from './matmodule/matmodule.module';
     AppRoutingModule,
     ComponentModule,
     BrowserAnimationsModule,
-    MatmoduleModule
+    MatmoduleModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -10,7 +10,7 @@ export class AuthGuardService implements CanActivate {
   constructor(private router: Router) { }
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
     
-    if(localStorage.getItem('jwt-key')){
+    if(localStorage.getItem('jwt-key')!=undefined && localStorage.getItem('jwt-key')!=""){
       console.log('sikeres auth')
       return true;
       
