@@ -3,7 +3,7 @@ export interface Job{
     title: string
     description: string
     value: number
-    process: job_process
+    process?: job_process
 }
 
 

@@ -1,1 +1,36 @@
-<p>profile works!</p>
+<div class="container">
+    <div class="mini-container">
+        <div>
+            Username: {{username}}
+        </div>
+        <div>
+            currency: {{currency}}
+        </div>
+        <button mat-button (click)="CreateJob()" > Create a Job </button>
+    </div>
+    <div *ngIf="jobs.length<1; else elseBlock">
+        <span> You don't have a job</span>
+    </div>
+    <ng-template #elseBlock>
+    <mat-table [dataSource]="jobs">
+   
+        <ng-container matColumnDef="title">
+          <mat-header-cell *matHeaderCellDef> title</mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.title}} </mat-cell>
+        </ng-container>
+      
+        <ng-container matColumnDef="description">
+          <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.description}} </mat-cell>
+        </ng-container>
+      
+        <ng-container matColumnDef="value">
+          <mat-header-cell *matHeaderCellDef> Value </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.value}} Points </mat-cell>
+        </ng-container>
+      
+        <mat-header-row *matHeaderRowDef="['title', 'description', 'value']"></mat-header-row>
+        <mat-row (click)="DeleteJob(row.value,row.id)" *matRowDef="let row; columns: ['title', 'description', 'value']"></mat-row>
+      </mat-table>
+    </ng-template>
+</div>

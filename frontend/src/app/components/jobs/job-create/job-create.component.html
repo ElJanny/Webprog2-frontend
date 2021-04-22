@@ -1,1 +1,13 @@
-<p>job-create works!</p>
+<div class="container">
+    <div class="l-container">
+    <input placeholder="title of Job" [(ngModel)]="title" />
+    <div>
+        <textarea matInput placeholder="Describe yourself here..." [(ngModel)]="description" rows="8"> </textarea>
+    </div>
+     <input placeholder="value" type="number" [(ngModel)]="value" />
+     <div class="button-container">
+     <button mat-button (click)="createJob()">Create Job</button>
+    </div>
+    </div> 
+</div>
+

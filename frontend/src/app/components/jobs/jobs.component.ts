@@ -3,8 +3,11 @@ import { AfterViewInit, ViewChild } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Job } from 'src/app/api/models/jobs.model';
+import { Job, job_process } from 'src/app/api/models/jobs.model';
+import { JobService } from 'src/app/api/services/job.service';
+import { UserService } from 'src/app/api/services/user.service';
 import { JobsService } from './jobs.service';
 
 @Component({
@@ -21,10 +24,10 @@ export class JobsComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
 
-  constructor(private _JobsService: JobsService) { }
+  constructor(private _JobsService: JobService, private _UserService: UserService,private router: Router) { }
   
   ngOnInit(): void {
-    this._JobsService.getavjobs().subscribe((data)=>{
+    this._JobsService.getJobs(job_process.FREE).subscribe((data)=>{
       this.dataSource.data= data   
      })
   }
@@ -34,7 +37,8 @@ export class JobsComponent implements OnInit, AfterViewInit {
   }
 
   selectThing(row: Job){
-    console.log(row.id)
+    this._UserService.addJobToUser(row)
+    this.router.navigate(['/profile'])
   }  
  
 
