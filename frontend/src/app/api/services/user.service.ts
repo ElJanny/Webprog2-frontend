@@ -49,6 +49,16 @@ export class UserService{
         return this.http.patch<User>('http://localhost:3000/user',{'current_jobs': jobs},httpOptions).subscribe(data => console.log(data))
     }
 
+    removeJobFromUser(jobs: Job){
+        const httpOptions ={
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + localStorage.getItem('jwt-key')
+            }) 
+        }
+        return this.http.patch<User>('http://localhost:3000/user/removejob',{'current_jobs': jobs},httpOptions).subscribe(data => console.log(data))
+    }
+
     addValueToUser(value:number){
         const httpOptions ={
             headers: new HttpHeaders({
@@ -57,5 +67,15 @@ export class UserService{
             }) 
         }
         return this.http.patch<User>('http://localhost:3000/user',{'points': value},httpOptions).subscribe(data => console.log(data))
+    }
+
+    setUserProfileImage(image: Object){
+        const httpOptions ={
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + localStorage.getItem('jwt-key')
+            }) 
+        }
+        return this.http.patch<User>('http://localhost:3000/user',{'titleImageId': image},httpOptions).subscribe(data => console.log(data))
     }
 }

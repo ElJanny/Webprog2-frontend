@@ -6,6 +6,7 @@
     align-content: center;
     align-items: center;
     justify-content: center;
+    overflow-y: scroll;
 }
 
 .mini-container{
@@ -13,6 +14,10 @@
     width: 50%;
     height: fit-content;
     border-bottom:black 2px solid;
+}
+
+.mini-container button{
+    margin: 15px;
 }
 
 .job-container{
@@ -34,6 +39,12 @@
 .job-text{
     margin-right: 15%;
     
+}
+
+img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
 }
 
 mat-table{

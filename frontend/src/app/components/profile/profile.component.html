@@ -1,12 +1,15 @@
 <div class="container">
     <div class="mini-container">
+      <div class="img-container" dnd (fileDropped)="uploadFile($event)">
+        <img [src]="titleImageUrl" >
+      </div>
         <div>
             Username: {{username}}
         </div>
         <div>
             currency: {{currency}}
         </div>
-        <button mat-button (click)="CreateJob()" > Create a Job </button>
+        <button mat-raised-button (click)="CreateJob()" color="primary" > Create a Job </button>
     </div>
     <div *ngIf="jobs.length<1; else elseBlock">
         <span> You don't have a job</span>
@@ -29,8 +32,17 @@
           <mat-cell *matCellDef="let row"> {{row.value}} Points </mat-cell>
         </ng-container>
       
-        <mat-header-row *matHeaderRowDef="['title', 'description', 'value']"></mat-header-row>
-        <mat-row (click)="DeleteJob(row.value,row.id)" *matRowDef="let row; columns: ['title', 'description', 'value']"></mat-row>
+        <ng-container matColumnDef="buttons">
+          <mat-header-cell *matHeaderCellDef>  </mat-header-cell>
+          <mat-cell *matCellDef="let row" >  
+            <button mat-button (click)="DeleteJob(row.value,row.id)" ><mat-icon> done </mat-icon></button>
+            <button mat-button (click)="CancelJob(row,row.id)" ><mat-icon> close </mat-icon> </button>
+           </mat-cell>
+        </ng-container>
+        
+
+        <mat-header-row *matHeaderRowDef="['title', 'description', 'value','buttons']"></mat-header-row>
+        <mat-row  *matRowDef="let row; columns: ['title', 'description', 'value', 'buttons']"></mat-row>
       </mat-table>
     </ng-template>
 </div>

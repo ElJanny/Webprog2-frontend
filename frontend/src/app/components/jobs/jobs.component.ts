@@ -17,7 +17,7 @@ import { JobsService } from './jobs.service';
 })
 export class JobsComponent implements OnInit, AfterViewInit {
   public avaliable_jobs: Job[] = []
-  public displayed_columns: string[]= ['title','description','value']
+  public displayed_columns: string[]= ['title','description','value','button']
  
 
   dataSource = new MatTableDataSource<Job>(this.avaliable_jobs);
@@ -28,8 +28,10 @@ export class JobsComponent implements OnInit, AfterViewInit {
   
   ngOnInit(): void {
     this._JobsService.getJobs(job_process.FREE).subscribe((data)=>{
-      this.dataSource.data= data   
+      this.dataSource.data= data  
+      this.avaliable_jobs = data 
      })
+     
   }
 
   ngAfterViewInit(): void {

@@ -7,4 +7,5 @@ export interface User{
     points?: number
     current_jobs: Job[]
     jobs_done?: number
+    titleImageId?: any
 }

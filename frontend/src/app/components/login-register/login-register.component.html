@@ -4,11 +4,11 @@
             <a [ngClass]="{'switch-active': signin, 'switch-inactive': !signin}" (click)="SwitchToLogin()"> login </a>
             <a [ngClass]="{'switch-active': !signin, 'switch-inactive': signin}" (click)="SwitchToRegister()"> register</a>
         </div>
-        <div *ngIf="signin; else register ">
+        <div *ngIf="signin; else register" >
             <app-login (login)="login($event)"></app-login>
         </div>
         <ng-template #register>
-            <div>
+            <div >
                 <app-register  > </app-register>
             </div>
         </ng-template>

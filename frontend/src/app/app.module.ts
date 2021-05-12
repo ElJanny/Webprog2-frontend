@@ -8,6 +8,7 @@ import { ComponentModule } from './components/component.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatmoduleModule } from './matmodule/matmodule.module';
 import { HttpClientModule } from '@angular/common/http';
+import { DndDirective } from './directives/dnd.directive';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     MainLayoutComponent,
     HeaderComponent
+   
   ],
   imports: [
     BrowserModule,

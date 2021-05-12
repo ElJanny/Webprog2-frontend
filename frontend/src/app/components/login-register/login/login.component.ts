@@ -13,7 +13,8 @@ export class LoginComponent implements OnInit {
   public username: string=""
   public password: string =""
   @Output() login = new EventEmitter<Object>()
-  constructor(private userService: UserService,
+  constructor(
+    private userService: UserService,
     private route : Router) { }
 
   ngOnInit(): void {

@@ -6,8 +6,9 @@ import { LoginComponent } from './login-register/login/login.component';
 import { RegisterComponent } from './login-register/register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { MatmoduleModule } from '../matmodule/matmodule.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { JobCreateComponent } from './jobs/job-create/job-create.component';
+import { DndDirective } from '../directives/dnd.directive';
 
 
 
@@ -18,12 +19,14 @@ import { JobCreateComponent } from './jobs/job-create/job-create.component';
     RegisterComponent,
     ProfileComponent,
     JobsComponent,
-    JobCreateComponent
+    JobCreateComponent,
+    DndDirective
   ],
   imports: [
     FormsModule,
     CommonModule,
-    MatmoduleModule
+    MatmoduleModule,
+    ReactiveFormsModule
   ]
 })
 export class ComponentModule { }
